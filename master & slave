@@ -1,0 +1,39 @@
+#Login to slave instance/server
+  
+  #Create an user
+   adduser nikhil
+   
+  #Set password for created user
+  passwd nikhil
+
+  # To login to the user nikhil 
+    su - nikhil
+  
+  #type visudo and enter and paste the following line under root ALL=(ALL) ALL
+  nikhil ALL=(ALL)  NOPASSWD: ALL  
+  
+  #edit sshd_config file and make passwordAuthentication yes ( instead of using keypair ) 
+                    root =      cd /etc/ssh/ 
+                     type command ls & select sshd_config , next type [ vi sshd_config ]
+   
+  vi /etc/ssh/sshd_config
+  passwordAuthentication yes
+  
+  #Restart sshd service 
+  service sshd restart
+
+
+
+
+#Login to master instance/server
+
+  #generate ssh key
+  ssh-keygen (don't give any inputs just type enter for all)
+  
+  #copy user and password to keygen - so it don't asks for password every time 
+  ssh-copy-id slave@<slave private ip>
+  
+  #Now create a file copy that file from master node to slave
+   touch f1
+   scp f1 slave@<slave pvt ip>:
+  
