@@ -1,0 +1,93 @@
+What is VCS - Version Control System?
+Version control is a system that records changes to a file or set of files over time so that you can recall specific versions later. you will use software source code as the files being version controlled, though in reality you can do this with nearly any type of file on a computer.
+
+GIT - GITHUB Strategy
+image.png
+
+
+#Installing GIT in Centos/RHEL/Fedora Server 
+yum install git -y
+     
+Go to github, Create an Account and Create a repository
+https://www.github.com
+
+
+#Create a folder for local repo, switch to that folder and Create local repo in that folder
+mkdir my_project_2022 && cd my_project_2022 && git init .
+     
+
+#Create a file and check untracked files
+touch file1 && git status
+     
+
+#Add them to local repo, commit them and check git status again
+git add file1 && git commit -m 'this is my first commit' file1 && git status
+     
+
+#Adding github repo url to local
+git remote add origin <!repo url!>
+     
+
+#Check git branch
+git branch
+     
+
+#Push Changes to central repo
+git push -u origin <!branch name!>
+     
+
+#Command to check hidden files
+ls -a
+     
+
+#Track commits
+git log
+     
+
+#Update local 
+git pull
+     
+
+#Revert Changes
+git reset --hard <!commit id!>
+     
+
+#Git fetch (git pull = git fetch + git merge)
+   #git pull will download changes from central and merges those changes
+   #git fetch will only download changes but not merges those changes
+   #git merge will merge downloaded code
+
+#git fetch
+git fetch
+
+#git merge
+git merge origin/<!branch name!>
+     
+
+#Compare between two commits
+git diff <!commit_id1!>..<!commit_id2!>
+     
+
+#Create a git branch
+git branch <!branch name!>
+     
+
+#Checkout to a branch
+git checkout <!branch name!>
+     
+
+#Push branch to central
+git push origin <!branch name!>
+     
+
+#Change branch name
+git branch -m <!old branch name!> <!new branch name!>
+     
+
+#Change central branch name
+git push origin :<!old branch name!> <!new branch name!>
+     
+
+#git stash - It gives an error, while switching to another without commiting the changes, then we are required to stash the changes 
+git stash
+     
